@@ -8,12 +8,12 @@ function* readDir(dir, filter) {
 
   function* walk(dir) {
     var nodes = yield fs.readdir(dir);
-
+    if (!fs.existsSync(dir)) return;
+    
     yield each(nodes.filter(filterFn), function* (node) {
       var path = join(dir, node);
 
       var stats = yield fs.lstat(path);
-
       if (stats.isDirectory()) {
         return yield walk(path);
       }
@@ -22,7 +22,6 @@ function* readDir(dir, filter) {
     });
     return out;
   }
-
   return yield walk(dir);
 }
 
