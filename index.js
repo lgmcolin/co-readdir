@@ -1,3 +1,4 @@
+'use strict';
 var fs = require('co-fs');
 var each = require('co-each');
 var join = require('path').join;
@@ -11,7 +12,7 @@ function* readDir(dir, ignore, filter) {
 
   function* walk(dir) {
     var nodes = yield fs.readdir(dir);
-    var exist = yield fs.exists(dir); 
+    var exist = yield fs.exists(dir);
     if(!exist) return;
 
     yield each(nodes.filter(filterFn), function* (node) {
@@ -22,7 +23,7 @@ function* readDir(dir, ignore, filter) {
       if (stats.isDirectory()) {
         return yield walk(path);
       }
-      
+
       if(ignore) {
         match = yield miniMatch(path, ignore);
       }
@@ -31,7 +32,7 @@ function* readDir(dir, ignore, filter) {
     });
     return out;
   }
-  return yield walk(dir); 
+  return yield walk(dir);
 }
 
 function*  miniMatch(str, ignore) {
