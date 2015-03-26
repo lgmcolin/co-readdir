@@ -1,6 +1,6 @@
 {
   "name": "co-readdir",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "walk a file tree and return a list of files",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "co": "~3.0.4",
     "co-fs": "~1.2.0",
     "co-each": "~0.1.0",
-    "unglob": "~0.1.1"
+    "minimatch": "~0.2.14"
   },
   "devDependencies": {
     "mocha": "~2.2.1"
