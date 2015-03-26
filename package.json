@@ -4,7 +4,7 @@
   "description": "walk a file tree and return a list of files",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jshint ."
   },
   "keywords": [
     "co",
@@ -12,13 +12,14 @@
   ],
   "author": "lgmrain",
   "dependencies": {
-    "co": "~3.0.4",
+    "co": "~4.5.1",
     "co-fs": "~1.2.0",
     "co-each": "~0.1.0",
     "minimatch": "~0.2.14"
   },
   "devDependencies": {
-    "mocha": "~2.2.1"
+    "mocha": "~2.2.1",
+    "jshint": "*"
   },
   "directories": {
     "test": "test"

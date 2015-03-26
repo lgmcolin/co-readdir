@@ -31,13 +31,12 @@ function* readDir(dir, ignore, filter) {
     });
     return out;
   }
-
   return yield walk(dir); 
 }
 
 function*  miniMatch(str, ignore) {
   var opts = {
-    matchBase:true
+    matchBase: true
   };
   if (!hasGlob(ignore)) return;
   return minimatch(str, ignore, opts);
@@ -48,7 +47,7 @@ function noDotFiles(x) {
 }
 
 function hasGlob(x) {
-  return ~x.indexOf('*')
+  return ~x.indexOf('*');
 }
 
 module.exports = readDir;
